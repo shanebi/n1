@@ -2,7 +2,8 @@ package inteface.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import inteface.My1GdxGame;
+
+import inteface.manag.My1GdxGame;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
