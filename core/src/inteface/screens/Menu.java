@@ -18,7 +18,10 @@ public class Menu implements Screen {
 
 		My1GdxGame game;
 
-		private Sprite boutonSprite;
+		private Sprite boutonSpriteJeu;
+		private Sprite boutonSpritePropos;
+		private Sprite boutonSpriteQuitter;
+		private Sprite boutonSpriteReglages;
 
 		private Sprite boutonCliqueSprite;
 
@@ -76,9 +79,9 @@ public class Menu implements Screen {
 
 		private float yDecalage;
 
-		private Sound mp3Sound;
+		//private Sound mp3Sound;
 
-		private Music music;
+		//private Music music;
 
 
 		private int page;
@@ -157,17 +160,24 @@ public class Menu implements Screen {
 
 			// Charger Texture dans Sprite
 
-			boutonSprite =new Sprite(new Texture(Gdx.files.internal("nouvTest.png"))) ;
+			boutonSpriteJeu =new Sprite(new Texture(Gdx.files.internal("jeu.png"))) ;
+			boutonSpritePropos =new Sprite(new Texture(Gdx.files.internal("apropos.png"))) ;
+			boutonSpriteQuitter =new Sprite(new Texture(Gdx.files.internal("quitter.png"))) ;
+			boutonSpriteReglages =new Sprite(new Texture(Gdx.files.internal("reglages.png"))) ;
+			
+			
+			boutonCliqueSprite = new Sprite(new Texture(Gdx.files.internal("quitter.png"))) ;
 
-			boutonCliqueSprite = new Sprite(new Texture(Gdx.files.internal("nouvTest"))) ;
-
-			arrierePlanSprite = new Sprite(new Texture(Gdx.files.internal("logo1.png")));
+			arrierePlanSprite = new Sprite(new Texture(Gdx.files.internal("acceuil.png")));
 
 			boutonRetourSprite = new Sprite(new Texture(Gdx.files.internal("retour.png")));
 
 
 
-			boutonSprite.setSize(xUnite(128), yUnite(64));
+			boutonSpriteJeu.setSize(xUnite(130), yUnite(50));
+			boutonSpritePropos.setSize(xUnite(130), yUnite(50));
+			boutonSpriteQuitter.setSize(xUnite(130), yUnite(50));
+			boutonSpriteReglages.setSize(xUnite(130), yUnite(50));
 
 			boutonCliqueSprite.setSize(xUnite(128), yUnite(64));
 
@@ -175,8 +185,8 @@ public class Menu implements Screen {
 
 			boutonRetourSprite.setSize(xUnite(64), yUnite(64));
 
-			mp3Sound = Gdx.audio.newSound(Gdx.files.internal("button-28.mp3"));
-			Music music = Gdx.audio.newMusic(Gdx.files.internal("jungle-run-01.mp3"));
+			//mp3Sound = Gdx.audio.newSound(Gdx.files.internal("button-28.mp3"));
+			//Music music = Gdx.audio.newMusic(Gdx.files.internal("jungle-run-01.mp3"));
 
 			// La police pour le texte
 
@@ -187,26 +197,7 @@ public class Menu implements Screen {
 			font.setScale(xUnite(1), yUnite(1)); // définir la taille du texte selon l'écran
 
 
-
-			xDecalage = xUnite(40); // pour gérer le décalage de positionnement entre font et sprite
-
-			yDecalage = yUnite(40);
-
-
-
-			// Texte des boutons 1, bouton 2, bouton 3
-
-			texteBouton1 = "Start";
-
-			texteBouton2 = "Options";
-
-			texteBouton3 = "Bonnus";
-
-			texteBouton4 = "Quitter";
-
-
-
-			xposBouton1 = xUnite(176); // Position du bouton 'StartGame'
+			xposBouton1 = xUnite(176); // Position du bouton 'nouveau jeu'
 
 			yposBouton1 = yUnite(250);
 
@@ -237,8 +228,8 @@ public class Menu implements Screen {
 			
 			
 			// music.isPlaying();
-			 music.setLooping(true);
-			 music.play();
+			 //music.setLooping(true);
+			 //music.play();
 			
 
 
@@ -265,7 +256,7 @@ public class Menu implements Screen {
 
 						// le bouton 1 (startGame) a été cliqué
 						// game.setScreen(new MapScreen(game));
-						mp3Sound.play();
+						//mp3Sound.play();
 						page=1;
 
 					}
@@ -458,9 +449,9 @@ public class Menu implements Screen {
 
 			{
 
-				boutonSprite.setPosition(xposBouton1, yposBouton1);// fixer la position
+				boutonSpriteJeu.setPosition(xposBouton1, yposBouton1);// fixer la position
 
-				boutonSprite.draw(batch);                          // puis le dessiner
+				boutonSpriteJeu.draw(batch);                          // puis le dessiner
 
 			}else
 
@@ -480,9 +471,9 @@ public class Menu implements Screen {
 
 			{
 
-				boutonSprite.setPosition(xposBouton2, yposBouton2);// fixer la position
+				boutonSpriteReglages.setPosition(xposBouton2, yposBouton2);// fixer la position
 
-				boutonSprite.draw(batch);                          // puis le dessiner
+				boutonSpriteReglages.draw(batch);                          // puis le dessiner
 
 			}else
 
@@ -502,9 +493,9 @@ public class Menu implements Screen {
 
 			{
 
-				boutonSprite.setPosition(xposBouton3, yposBouton3); // fixer la position
+				boutonSpritePropos.setPosition(xposBouton3, yposBouton3); // fixer la position
 
-				boutonSprite.draw(batch);                           // puis le dessiner
+				boutonSpritePropos.draw(batch);                           // puis le dessiner
 
 			}else
 
@@ -523,9 +514,9 @@ public class Menu implements Screen {
 
 			{
 
-				boutonSprite.setPosition(xposBouton4, yposBouton4); // fixer la position
+				boutonSpriteQuitter.setPosition(xposBouton4, yposBouton4); // fixer la position
 
-				boutonSprite.draw(batch);                           // puis le dessiner
+				boutonSpriteQuitter.draw(batch);                           // puis le dessiner
 
 			}else
 
@@ -536,39 +527,6 @@ public class Menu implements Screen {
 				boutonCliqueSprite.draw(batch);
 
 			}
-
-
-
-			// texte du bouton1
-
-
-
-			font.draw(batch, ""+texteBouton1, xposBouton1+xDecalage, yposBouton1+yDecalage);
-
-
-
-			// texte du bouton2
-
-
-
-			font.draw(batch, ""+texteBouton2, xposBouton2+xDecalage, yposBouton2+yDecalage);
-
-
-
-			// texte du bouton3
-
-
-
-			font.draw(batch, ""+texteBouton3, xposBouton3+xDecalage, yposBouton3+yDecalage);
-
-
-			// texte du bouton4
-
-
-
-			font.draw(batch, ""+texteBouton4, xposBouton4+xDecalage, yposBouton4+yDecalage);
-
-
 
 
 			batch.end();  // obligatoire pour finir le dessin sur un SpriteBatch
@@ -593,11 +551,11 @@ public class Menu implements Screen {
 
 			if(page == 2)  // si on est à la page Options
 				
-				font.draw(batch, "Options", xUnite(200), yUnite(320)); // dessiner le titre de la page 2
+				font.draw(batch, "Reglages", xUnite(200), yUnite(320)); // dessiner le titre de la page 2
 
 			if(page == 3)  // si on est à la page Bonus
 
-				font.draw(batch, "Bonus", xUnite(220), yUnite(320)); // dessiner le titre de la page 3
+				font.draw(batch, "A propos", xUnite(220), yUnite(320)); // dessiner le titre de la page 3
 
 
 
