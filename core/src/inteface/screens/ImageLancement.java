@@ -112,8 +112,6 @@ public class ImageLancement implements Screen {
         	  @Override
               public boolean touchUp(int x, int y, int pointer, int bouton) {
         		  game.setScreen(new Menu(game));
-        		 
-        		  Gdx.app.log("Menu", "Dans le menu rose");
 				return false;
         		  
         	  }
